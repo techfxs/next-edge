@@ -10,8 +10,16 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
+  if (url.pathname.startsWith("/")) {
+    return NextResponse.redirect("https://nx-proto-mw-home.vercel.app/");
+  }
+
+  if (url.pathname.startsWith("/product")) {
+    return NextResponse.redirect("https://nx-proto-mw-pdp.vercel.app/");
+  }
+
   // Rewrite example: Serve /api/* requests from /api-v2/*
-  if (url.pathname.startsWith("/api")) {
+  if (url.pathname.startsWith("/")) {
     url.pathname = url.pathname.replace("/api", "/api-v2");
     return NextResponse.rewrite(url);
   }
