@@ -5,17 +5,18 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
 
   // Redirect example: redirect /old-path to /new-path
-  if (url.pathname === "/old-path") {
-    url.pathname = "/new-path";
-    return NextResponse.redirect(url);
+  // if (url.pathname === "/old-path") {
+  //   url.pathname = "/new-path";
+  //   return NextResponse.redirect(url);
+  // }
+
+  if (url.pathname.startsWith("/product")) {
+    console.log(url);
+    return NextResponse.redirect("https://nx-proto-mw-pdp.vercel.app/");
   }
 
   if (url.pathname.startsWith("/")) {
     return NextResponse.redirect("https://nx-proto-mw-home.vercel.app/");
-  }
-
-  if (url.pathname.startsWith("/product")) {
-    return NextResponse.redirect("https://nx-proto-mw-pdp.vercel.app/");
   }
 
   // Rewrite example: Serve /api/* requests from /api-v2/*
