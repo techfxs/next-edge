@@ -12,11 +12,11 @@ export function middleware(request: NextRequest) {
 
   if (url.pathname.startsWith("/product")) {
     console.log(url);
-    return NextResponse.redirect("https://nx-proto-mw-pdp.vercel.app/");
+    return NextResponse.rewrite("https://nx-proto-mw-pdp.vercel.app/");
   }
 
   if (url.pathname.startsWith("/")) {
-    return NextResponse.redirect("https://nx-proto-mw-home.vercel.app/");
+    return NextResponse.rewrite("https://nx-proto-mw-home.vercel.app/");
   }
 
   // Rewrite example: Serve /api/* requests from /api-v2/*
