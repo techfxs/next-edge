@@ -31,5 +31,5 @@ export function middleware(request: NextRequest) {
 
 // Optional: configure paths to run middleware on
 export const config = {
-  matcher: ["/old-path", "/api/:path*"],
+  matcher: ["/", "/product", "/old-path", "/api/:path*"],
 };
