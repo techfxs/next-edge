@@ -15,6 +15,10 @@ export function middleware(request: NextRequest) {
     return NextResponse.rewrite("https://nx-proto-mw-pdp.vercel.app/");
   }
 
+  if (url.pathname.startsWith("/_next")) {
+    return NextResponse.rewrite("https://nx-proto-mw-home.vercel.app/");
+  }
+
   if (url.pathname.startsWith("/")) {
     return NextResponse.rewrite("https://nx-proto-mw-home.vercel.app/");
   }
